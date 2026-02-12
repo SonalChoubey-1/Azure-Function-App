@@ -1,0 +1,3792 @@
+param connections_keyvault_name string
+param connections_dynamicsax_name string
+param vaults_ProjIntTopic_name string
+param connections_servicebus_1_name string
+param sites_ProjectIntegration_name string
+param vaults_trainingSonal_name string
+param sites_ThirdPartyntegration_name string
+param sites_ThirdPartyIntegration_name string
+param connections_sharepointonline_name string
+param serverfarms_ASP_RGSonal_812b_name string
+param serverfarms_ASP_RGSonal_8978_name string
+param serverfarms_ASP_RGSonal_bea9_name string
+param vaults_ProjIntegrationKey_name string
+param namespaces_SampleTopic1_name string
+param storageAccounts_rgsonalaa79_name string
+param storageAccounts_rgsonalb20f_name string
+param storageAccounts_rgsonalbeec_name string
+param vaults_ProjectIntegrationKey_name string
+param namespaces_TestPoJsonSonal_name string
+param components_ProjectIntegration_name string
+param vaults_BusinessEvent_KeyVailt_name string
+param vaults_BusinessEvent_KeyVault1_name string
+param vaults_BusinessEvent_KeyVault2_name string
+param components_ThirdPartyntegration_name string
+param namespaces_ProjectIntegration_name string
+param components_ThirdPartyIntegration_name string
+param storageAccounts_blobcontainertraining_name string
+param userAssignedIdentities_oidc_msi_b7bf_name string
+param components_ApplicationInsights_ServiceBsQueue_name string
+param actionGroups_Application_Insights_Smart_Detection_name string
+param workspaces_DefaultWorkspace_da723b97_761b_4699_a2e6_ad3b6694be3b_EUS_externalid string
+
+resource actionGroups_Application_Insights_Smart_Detection_name_resource 'microsoft.insights/actionGroups@2024-10-01-preview' = {
+  name: actionGroups_Application_Insights_Smart_Detection_name
+  location: 'Global'
+  properties: {
+    groupShortName: 'SmartDetect'
+    enabled: true
+    emailReceivers: []
+    smsReceivers: []
+    webhookReceivers: []
+    eventHubReceivers: []
+    itsmReceivers: []
+    azureAppPushReceivers: []
+    automationRunbookReceivers: []
+    voiceReceivers: []
+    logicAppReceivers: []
+    azureFunctionReceivers: []
+    armRoleReceivers: [
+      {
+        name: 'Monitoring Contributor'
+        roleId: '749f88d5-cbae-40b8-bcfc-e573ddc772fa'
+        useCommonAlertSchema: true
+      }
+      {
+        name: 'Monitoring Reader'
+        roleId: '43d0d8ad-25c7-4714-9337-8ba259a9fe05'
+        useCommonAlertSchema: true
+      }
+    ]
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_resource 'microsoft.insights/components@2020-02-02' = {
+  name: components_ApplicationInsights_ServiceBsQueue_name
+  location: 'eastus'
+  kind: 'web'
+  properties: {
+    Application_Type: 'web'
+    Flow_Type: 'Redfield'
+    Request_Source: 'IbizaAIExtension'
+    RetentionInDays: 90
+    WorkspaceResourceId: workspaces_DefaultWorkspace_da723b97_761b_4699_a2e6_ad3b6694be3b_EUS_externalid
+    IngestionMode: 'LogAnalytics'
+    publicNetworkAccessForIngestion: 'Enabled'
+    publicNetworkAccessForQuery: 'Enabled'
+  }
+}
+
+resource components_ProjectIntegration_name_resource 'microsoft.insights/components@2020-02-02' = {
+  name: components_ProjectIntegration_name
+  location: 'eastus'
+  kind: 'web'
+  properties: {
+    Application_Type: 'web'
+    Flow_Type: 'Redfield'
+    Request_Source: 'IbizaWebAppExtensionCreate'
+    RetentionInDays: 90
+    WorkspaceResourceId: workspaces_DefaultWorkspace_da723b97_761b_4699_a2e6_ad3b6694be3b_EUS_externalid
+    IngestionMode: 'LogAnalytics'
+    publicNetworkAccessForIngestion: 'Enabled'
+    publicNetworkAccessForQuery: 'Enabled'
+    DisableLocalAuth: false
+  }
+}
+
+resource components_ThirdPartyIntegration_name_resource 'microsoft.insights/components@2020-02-02' = {
+  name: components_ThirdPartyIntegration_name
+  location: 'eastus'
+  kind: 'web'
+  properties: {
+    Application_Type: 'web'
+    Flow_Type: 'Redfield'
+    Request_Source: 'IbizaWebAppExtensionCreate'
+    RetentionInDays: 90
+    WorkspaceResourceId: workspaces_DefaultWorkspace_da723b97_761b_4699_a2e6_ad3b6694be3b_EUS_externalid
+    IngestionMode: 'LogAnalytics'
+    publicNetworkAccessForIngestion: 'Enabled'
+    publicNetworkAccessForQuery: 'Enabled'
+    DisableLocalAuth: false
+  }
+}
+
+resource components_ThirdPartyntegration_name_resource 'microsoft.insights/components@2020-02-02' = {
+  name: components_ThirdPartyntegration_name
+  location: 'eastus'
+  kind: 'web'
+  properties: {
+    Application_Type: 'web'
+    Flow_Type: 'Redfield'
+    Request_Source: 'IbizaWebAppExtensionCreate'
+    RetentionInDays: 90
+    WorkspaceResourceId: workspaces_DefaultWorkspace_da723b97_761b_4699_a2e6_ad3b6694be3b_EUS_externalid
+    IngestionMode: 'LogAnalytics'
+    publicNetworkAccessForIngestion: 'Enabled'
+    publicNetworkAccessForQuery: 'Enabled'
+    DisableLocalAuth: false
+  }
+}
+
+resource vaults_BusinessEvent_KeyVailt_name_resource 'Microsoft.KeyVault/vaults@2024-12-01-preview' = {
+  name: vaults_BusinessEvent_KeyVailt_name
+  location: 'eastus'
+  properties: {
+    sku: {
+      family: 'A'
+      name: 'Standard'
+    }
+    tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+    networkAcls: {
+      bypass: 'None'
+      defaultAction: 'Allow'
+      ipRules: []
+      virtualNetworkRules: []
+    }
+    accessPolicies: []
+    enabledForDeployment: false
+    enabledForDiskEncryption: false
+    enabledForTemplateDeployment: false
+    enableSoftDelete: true
+    softDeleteRetentionInDays: 90
+    enableRbacAuthorization: true
+    vaultUri: 'https://businessevent-keyvailt.vault.azure.net/'
+    provisioningState: 'Succeeded'
+    publicNetworkAccess: 'Enabled'
+  }
+}
+
+resource vaults_BusinessEvent_KeyVault1_name_resource 'Microsoft.KeyVault/vaults@2024-12-01-preview' = {
+  name: vaults_BusinessEvent_KeyVault1_name
+  location: 'eastus'
+  properties: {
+    sku: {
+      family: 'A'
+      name: 'Standard'
+    }
+    tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+    networkAcls: {
+      bypass: 'None'
+      defaultAction: 'Allow'
+      ipRules: []
+      virtualNetworkRules: []
+    }
+    accessPolicies: []
+    enabledForDeployment: false
+    enabledForDiskEncryption: false
+    enabledForTemplateDeployment: false
+    enableSoftDelete: true
+    softDeleteRetentionInDays: 90
+    enableRbacAuthorization: true
+    vaultUri: 'https://businessevent-keyvault1.vault.azure.net/'
+    provisioningState: 'Succeeded'
+    publicNetworkAccess: 'Enabled'
+  }
+}
+
+resource vaults_BusinessEvent_KeyVault2_name_resource 'Microsoft.KeyVault/vaults@2024-12-01-preview' = {
+  name: vaults_BusinessEvent_KeyVault2_name
+  location: 'eastus'
+  properties: {
+    sku: {
+      family: 'A'
+      name: 'Standard'
+    }
+    tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+    networkAcls: {
+      bypass: 'None'
+      defaultAction: 'Allow'
+      ipRules: []
+      virtualNetworkRules: []
+    }
+    accessPolicies: [
+      {
+        tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+        objectId: '0c6021b5-a2f2-41a5-8233-a174edc1d734'
+        permissions: {
+          keys: [
+            'Get'
+            'List'
+            'Update'
+            'Create'
+            'Import'
+            'Delete'
+            'Recover'
+            'Backup'
+            'Restore'
+            'GetRotationPolicy'
+            'SetRotationPolicy'
+            'Rotate'
+          ]
+          secrets: [
+            'Get'
+            'List'
+            'Set'
+            'Delete'
+            'Recover'
+            'Backup'
+            'Restore'
+          ]
+          certificates: [
+            'Get'
+            'List'
+            'Update'
+            'Create'
+            'Import'
+            'Delete'
+            'Recover'
+            'Backup'
+            'Restore'
+            'ManageContacts'
+            'ManageIssuers'
+            'GetIssuers'
+            'ListIssuers'
+            'SetIssuers'
+            'DeleteIssuers'
+          ]
+        }
+      }
+      {
+        tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+        objectId: '5aeff8a7-c9a6-4c7c-99e4-ba05d8f5b505'
+        permissions: {
+          keys: [
+            'Get'
+            'List'
+            'Update'
+            'Create'
+            'Import'
+            'Delete'
+            'Recover'
+            'Backup'
+            'Restore'
+            'GetRotationPolicy'
+            'SetRotationPolicy'
+            'Rotate'
+          ]
+          secrets: [
+            'Get'
+            'List'
+            'Set'
+            'Delete'
+            'Recover'
+            'Backup'
+            'Restore'
+          ]
+          certificates: []
+        }
+      }
+    ]
+    enabledForDeployment: false
+    enabledForDiskEncryption: false
+    enabledForTemplateDeployment: false
+    enableSoftDelete: true
+    softDeleteRetentionInDays: 90
+    enableRbacAuthorization: true
+    vaultUri: 'https://businessevent-keyvault2.vault.azure.net/'
+    provisioningState: 'Succeeded'
+    publicNetworkAccess: 'Enabled'
+  }
+}
+
+resource vaults_ProjectIntegrationKey_name_resource 'Microsoft.KeyVault/vaults@2024-12-01-preview' = {
+  name: vaults_ProjectIntegrationKey_name
+  location: 'eastus'
+  properties: {
+    sku: {
+      family: 'A'
+      name: 'Standard'
+    }
+    tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+    networkAcls: {
+      bypass: 'None'
+      defaultAction: 'Allow'
+      ipRules: []
+      virtualNetworkRules: []
+    }
+    accessPolicies: [
+      {
+        tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+        objectId: '0c6021b5-a2f2-41a5-8233-a174edc1d734'
+        permissions: {
+          keys: [
+            'Get'
+            'List'
+          ]
+          secrets: [
+            'Get'
+            'List'
+          ]
+          certificates: [
+            'Get'
+            'List'
+          ]
+        }
+      }
+      {
+        tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+        objectId: 'e810f4a6-85af-442c-9876-11d46953644e'
+        permissions: {
+          keys: [
+            'List'
+            'Get'
+          ]
+          secrets: [
+            'Get'
+            'List'
+          ]
+          certificates: [
+            'Get'
+            'List'
+          ]
+        }
+      }
+      {
+        tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+        objectId: '23f5ae77-2e96-46be-a5da-b78f6272c59c'
+        permissions: {
+          certificates: [
+            'get'
+            'list'
+          ]
+          keys: [
+            'get'
+            'list'
+          ]
+          secrets: [
+            'get'
+            'list'
+          ]
+        }
+      }
+    ]
+    enabledForDeployment: false
+    enabledForDiskEncryption: false
+    enabledForTemplateDeployment: false
+    enableSoftDelete: true
+    softDeleteRetentionInDays: 90
+    enableRbacAuthorization: false
+    vaultUri: 'https://projectintegrationkey.vault.azure.net/'
+    provisioningState: 'Succeeded'
+    publicNetworkAccess: 'Enabled'
+  }
+}
+
+resource vaults_ProjIntegrationKey_name_resource 'Microsoft.KeyVault/vaults@2024-12-01-preview' = {
+  name: vaults_ProjIntegrationKey_name
+  location: 'eastus'
+  properties: {
+    sku: {
+      family: 'A'
+      name: 'Standard'
+    }
+    tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+    networkAcls: {
+      bypass: 'None'
+      defaultAction: 'Allow'
+      ipRules: []
+      virtualNetworkRules: []
+    }
+    accessPolicies: [
+      {
+        tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+        objectId: '0c6021b5-a2f2-41a5-8233-a174edc1d734'
+        permissions: {
+          keys: [
+            'Get'
+            'List'
+          ]
+          secrets: [
+            'Get'
+            'List'
+          ]
+          certificates: [
+            'Get'
+            'List'
+          ]
+        }
+      }
+      {
+        tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+        objectId: 'e810f4a6-85af-442c-9876-11d46953644e'
+        permissions: {
+          keys: [
+            'Get'
+            'List'
+          ]
+          secrets: [
+            'Get'
+            'List'
+          ]
+          certificates: [
+            'Get'
+            'List'
+          ]
+        }
+      }
+    ]
+    enabledForDeployment: false
+    enabledForDiskEncryption: false
+    enabledForTemplateDeployment: false
+    enableSoftDelete: true
+    softDeleteRetentionInDays: 90
+    enableRbacAuthorization: true
+    vaultUri: 'https://projintegrationkey.vault.azure.net/'
+    provisioningState: 'Succeeded'
+    publicNetworkAccess: 'Enabled'
+  }
+}
+
+resource vaults_ProjIntTopic_name_resource 'Microsoft.KeyVault/vaults@2024-12-01-preview' = {
+  name: vaults_ProjIntTopic_name
+  location: 'eastus'
+  properties: {
+    sku: {
+      family: 'A'
+      name: 'Standard'
+    }
+    tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+    networkAcls: {
+      bypass: 'None'
+      defaultAction: 'Allow'
+      ipRules: []
+      virtualNetworkRules: []
+    }
+    accessPolicies: [
+      {
+        tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+        objectId: '4f421330-806f-4711-9f2a-52239d8a871b'
+        permissions: {
+          keys: [
+            'Get'
+            'List'
+          ]
+          secrets: [
+            'List'
+            'Get'
+          ]
+          certificates: [
+            'Get'
+            'List'
+          ]
+        }
+      }
+      {
+        tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+        objectId: '0c6021b5-a2f2-41a5-8233-a174edc1d734'
+        permissions: {
+          certificates: [
+            'Get'
+            'List'
+            'Update'
+            'Create'
+            'Import'
+            'Delete'
+            'Recover'
+            'Backup'
+            'Restore'
+            'ManageContacts'
+            'ManageIssuers'
+            'GetIssuers'
+            'ListIssuers'
+            'SetIssuers'
+            'DeleteIssuers'
+          ]
+          keys: [
+            'Get'
+            'List'
+            'Update'
+            'Create'
+            'Import'
+            'Delete'
+            'Recover'
+            'Backup'
+            'Restore'
+            'GetRotationPolicy'
+            'SetRotationPolicy'
+            'Rotate'
+            'Encrypt'
+            'Decrypt'
+            'UnwrapKey'
+            'WrapKey'
+            'Verify'
+            'Sign'
+          ]
+          secrets: [
+            'Get'
+            'List'
+            'Set'
+            'Delete'
+            'Recover'
+            'Backup'
+            'Restore'
+            'Purge'
+          ]
+        }
+      }
+    ]
+    enabledForDeployment: false
+    enabledForDiskEncryption: false
+    enabledForTemplateDeployment: false
+    enableSoftDelete: true
+    softDeleteRetentionInDays: 90
+    enableRbacAuthorization: false
+    vaultUri: 'https://projinttopic.vault.azure.net/'
+    provisioningState: 'Succeeded'
+    publicNetworkAccess: 'Enabled'
+  }
+}
+
+resource vaults_trainingSonal_name_resource 'Microsoft.KeyVault/vaults@2024-12-01-preview' = {
+  name: vaults_trainingSonal_name
+  location: 'eastus'
+  properties: {
+    sku: {
+      family: 'A'
+      name: 'Standard'
+    }
+    tenantId: 'e85feadf-11e7-47bb-a160-43b98dcc96f1'
+    networkAcls: {
+      bypass: 'None'
+      defaultAction: 'Allow'
+      ipRules: []
+      virtualNetworkRules: []
+    }
+    accessPolicies: []
+    enabledForDeployment: false
+    enabledForDiskEncryption: false
+    enabledForTemplateDeployment: false
+    enableSoftDelete: true
+    softDeleteRetentionInDays: 90
+    enableRbacAuthorization: true
+    vaultUri: 'https://trainingsonal.vault.azure.net/'
+    provisioningState: 'Succeeded'
+    publicNetworkAccess: 'Enabled'
+  }
+}
+
+resource userAssignedIdentities_oidc_msi_b7bf_name_resource 'Microsoft.ManagedIdentity/userAssignedIdentities@2025-01-31-preview' = {
+  name: userAssignedIdentities_oidc_msi_b7bf_name
+  location: 'eastus'
+}
+
+resource namespaces_ProjectIntegration_name_resource 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
+  name: namespaces_ProjectIntegration_name
+  location: 'eastus'
+  sku: {
+    name: 'Standard'
+    tier: 'Standard'
+  }
+  properties: {
+    premiumMessagingPartitions: 0
+    minimumTlsVersion: '1.2'
+    publicNetworkAccess: 'Enabled'
+    disableLocalAuth: false
+    zoneRedundant: true
+  }
+}
+
+resource namespaces_SampleTopic1_name_resource 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
+  name: namespaces_SampleTopic1_name
+  location: 'eastus'
+  sku: {
+    name: 'Standard'
+    tier: 'Standard'
+  }
+  properties: {
+    premiumMessagingPartitions: 0
+    minimumTlsVersion: '1.2'
+    publicNetworkAccess: 'Enabled'
+    disableLocalAuth: false
+    zoneRedundant: true
+  }
+}
+
+resource namespaces_TestPoJsonSonal_name_resource 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
+  name: namespaces_TestPoJsonSonal_name
+  location: 'eastus'
+  sku: {
+    name: 'Basic'
+    tier: 'Basic'
+  }
+  properties: {
+    premiumMessagingPartitions: 0
+    minimumTlsVersion: '1.2'
+    publicNetworkAccess: 'Enabled'
+    disableLocalAuth: false
+    zoneRedundant: true
+  }
+}
+
+resource storageAccounts_blobcontainertraining_name_resource 'Microsoft.Storage/storageAccounts@2025-01-01' = {
+  name: storageAccounts_blobcontainertraining_name
+  location: 'eastus'
+  sku: {
+    name: 'Standard_RAGRS'
+    tier: 'Standard'
+  }
+  kind: 'StorageV2'
+  properties: {
+    dnsEndpointType: 'Standard'
+    defaultToOAuthAuthentication: false
+    publicNetworkAccess: 'Enabled'
+    allowCrossTenantReplication: false
+    minimumTlsVersion: 'TLS1_2'
+    allowBlobPublicAccess: false
+    allowSharedKeyAccess: true
+    largeFileSharesState: 'Enabled'
+    networkAcls: {
+      bypass: 'AzureServices'
+      virtualNetworkRules: []
+      ipRules: []
+      defaultAction: 'Allow'
+    }
+    supportsHttpsTrafficOnly: true
+    encryption: {
+      requireInfrastructureEncryption: false
+      services: {
+        file: {
+          keyType: 'Account'
+          enabled: true
+        }
+        blob: {
+          keyType: 'Account'
+          enabled: true
+        }
+      }
+      keySource: 'Microsoft.Storage'
+    }
+    accessTier: 'Hot'
+  }
+}
+
+resource storageAccounts_rgsonalaa79_name_resource 'Microsoft.Storage/storageAccounts@2025-01-01' = {
+  name: storageAccounts_rgsonalaa79_name
+  location: 'eastus'
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  kind: 'Storage'
+  properties: {
+    defaultToOAuthAuthentication: true
+    publicNetworkAccess: 'Enabled'
+    allowCrossTenantReplication: false
+    minimumTlsVersion: 'TLS1_2'
+    allowBlobPublicAccess: false
+    allowSharedKeyAccess: true
+    networkAcls: {
+      bypass: 'AzureServices'
+      virtualNetworkRules: []
+      ipRules: []
+      defaultAction: 'Allow'
+    }
+    supportsHttpsTrafficOnly: true
+    encryption: {
+      services: {
+        file: {
+          keyType: 'Account'
+          enabled: true
+        }
+        blob: {
+          keyType: 'Account'
+          enabled: true
+        }
+      }
+      keySource: 'Microsoft.Storage'
+    }
+  }
+}
+
+resource storageAccounts_rgsonalb20f_name_resource 'Microsoft.Storage/storageAccounts@2025-01-01' = {
+  name: storageAccounts_rgsonalb20f_name
+  location: 'eastus'
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  kind: 'Storage'
+  properties: {
+    defaultToOAuthAuthentication: true
+    publicNetworkAccess: 'Enabled'
+    allowCrossTenantReplication: false
+    minimumTlsVersion: 'TLS1_2'
+    allowBlobPublicAccess: false
+    allowSharedKeyAccess: true
+    networkAcls: {
+      bypass: 'AzureServices'
+      virtualNetworkRules: []
+      ipRules: []
+      defaultAction: 'Allow'
+    }
+    supportsHttpsTrafficOnly: true
+    encryption: {
+      services: {
+        file: {
+          keyType: 'Account'
+          enabled: true
+        }
+        blob: {
+          keyType: 'Account'
+          enabled: true
+        }
+      }
+      keySource: 'Microsoft.Storage'
+    }
+  }
+}
+
+resource storageAccounts_rgsonalbeec_name_resource 'Microsoft.Storage/storageAccounts@2025-01-01' = {
+  name: storageAccounts_rgsonalbeec_name
+  location: 'eastus'
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  kind: 'Storage'
+  properties: {
+    defaultToOAuthAuthentication: true
+    publicNetworkAccess: 'Enabled'
+    allowCrossTenantReplication: false
+    minimumTlsVersion: 'TLS1_2'
+    allowBlobPublicAccess: false
+    allowSharedKeyAccess: true
+    networkAcls: {
+      bypass: 'AzureServices'
+      virtualNetworkRules: []
+      ipRules: []
+      defaultAction: 'Allow'
+    }
+    supportsHttpsTrafficOnly: true
+    encryption: {
+      services: {
+        file: {
+          keyType: 'Account'
+          enabled: true
+        }
+        blob: {
+          keyType: 'Account'
+          enabled: true
+        }
+      }
+      keySource: 'Microsoft.Storage'
+    }
+  }
+}
+
+resource connections_dynamicsax_name_resource 'Microsoft.Web/connections@2016-06-01' = {
+  name: connections_dynamicsax_name
+  location: 'eastus'
+  kind: 'V2'
+  properties: {
+    displayName: 'new_conn_889cf'
+    statuses: [
+      {
+        status: 'Connected'
+      }
+    ]
+    customParameterValues: {}
+    createdTime: '2026-02-10T13:27:07.9560315Z'
+    changedTime: '2026-02-12T13:57:32.8446902Z'
+    api: {
+      name: connections_dynamicsax_name
+      displayName: 'Fin & Ops Apps (Dynamics 365)'
+      description: 'Fin & Ops Apps (Dynamics 365) connector provides access to data entities.'
+      iconUri: 'https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1795/1.0.1795.4835/DynamicsAx/icon.png'
+      id: '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/providers/Microsoft.Web/locations/eastus/managedApis/${connections_dynamicsax_name}'
+      type: 'Microsoft.Web/locations/managedApis'
+    }
+    testLinks: []
+  }
+}
+
+resource connections_keyvault_name_resource 'Microsoft.Web/connections@2016-06-01' = {
+  name: connections_keyvault_name
+  location: 'eastus'
+  kind: 'V2'
+  properties: {
+    displayName: 'new_conn_b0003'
+    statuses: [
+      {
+        status: 'Connected'
+      }
+    ]
+    customParameterValues: {}
+    createdTime: '2026-02-09T02:02:49.0552188Z'
+    changedTime: '2026-02-10T13:15:18.8269359Z'
+    api: {
+      name: connections_keyvault_name
+      displayName: 'Azure Key Vault'
+      description: 'Azure Key Vault is a service to securely store and access secrets.'
+      iconUri: 'https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1773/1.0.1773.4385/${connections_keyvault_name}/icon.png'
+      id: '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/providers/Microsoft.Web/locations/eastus/managedApis/${connections_keyvault_name}'
+      type: 'Microsoft.Web/locations/managedApis'
+    }
+    testLinks: []
+  }
+}
+
+resource connections_servicebus_1_name_resource 'Microsoft.Web/connections@2016-06-01' = {
+  name: connections_servicebus_1_name
+  location: 'eastus'
+  kind: 'V2'
+  properties: {
+    displayName: 'new_conn_1d979'
+    statuses: [
+      {
+        status: 'Connected'
+      }
+    ]
+    customParameterValues: {}
+    createdTime: '2026-02-07T23:57:27.7732598Z'
+    changedTime: '2026-02-07T23:57:27.7732598Z'
+    api: {
+      name: 'servicebus'
+      displayName: 'Service Bus'
+      description: 'Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.'
+      iconUri: 'https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1760/1.0.1760.4281/servicebus/icon.png'
+      id: '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/providers/Microsoft.Web/locations/eastus/managedApis/servicebus'
+      type: 'Microsoft.Web/locations/managedApis'
+    }
+    testLinks: []
+  }
+}
+
+resource connections_sharepointonline_name_resource 'Microsoft.Web/connections@2016-06-01' = {
+  name: connections_sharepointonline_name
+  location: 'eastus'
+  kind: 'V2'
+  properties: {
+    displayName: 'sonalchoubey@hitachisolutions.com'
+    statuses: [
+      {
+        status: 'Connected'
+      }
+    ]
+    customParameterValues: {}
+    nonSecretParameterValues: {}
+    createdTime: '2026-02-09T18:24:20.2419224Z'
+    changedTime: '2026-02-12T13:57:32.8126559Z'
+    api: {
+      name: connections_sharepointonline_name
+      displayName: 'SharePoint'
+      description: 'SharePoint helps organizations share and collaborate with colleagues, partners, and customers. You can connect to SharePoint Online or to an on-premises SharePoint 2016 or 2019 farm using the On-Premises Data Gateway to manage documents and list items.'
+      iconUri: 'https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1769/1.0.1769.4352/${connections_sharepointonline_name}/icon.png'
+      id: '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/providers/Microsoft.Web/locations/eastus/managedApis/${connections_sharepointonline_name}'
+      type: 'Microsoft.Web/locations/managedApis'
+    }
+    testLinks: [
+      {
+        requestUri: 'https://management.azure.com:443/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/Microsoft.Web/connections/${connections_sharepointonline_name}/extensions/proxy/datasets?api-version=2016-06-01'
+        method: 'get'
+      }
+    ]
+  }
+}
+
+resource serverfarms_ASP_RGSonal_812b_name_resource 'Microsoft.Web/serverfarms@2024-11-01' = {
+  name: serverfarms_ASP_RGSonal_812b_name
+  location: 'East US'
+  sku: {
+    name: 'Y1'
+    tier: 'Dynamic'
+    size: 'Y1'
+    family: 'Y'
+    capacity: 0
+  }
+  kind: 'functionapp'
+  properties: {
+    perSiteScaling: false
+    elasticScaleEnabled: false
+    maximumElasticWorkerCount: 1
+    isSpot: false
+    reserved: false
+    isXenon: false
+    hyperV: false
+    targetWorkerCount: 0
+    targetWorkerSizeId: 0
+    zoneRedundant: false
+    asyncScalingEnabled: false
+  }
+}
+
+resource serverfarms_ASP_RGSonal_8978_name_resource 'Microsoft.Web/serverfarms@2024-11-01' = {
+  name: serverfarms_ASP_RGSonal_8978_name
+  location: 'East US'
+  sku: {
+    name: 'WS1'
+    tier: 'WorkflowStandard'
+    size: 'WS1'
+    family: 'WS'
+    capacity: 1
+  }
+  kind: 'elastic'
+  properties: {
+    perSiteScaling: false
+    elasticScaleEnabled: true
+    maximumElasticWorkerCount: 20
+    isSpot: false
+    reserved: false
+    isXenon: false
+    hyperV: false
+    targetWorkerCount: 0
+    targetWorkerSizeId: 0
+    zoneRedundant: false
+    asyncScalingEnabled: false
+  }
+}
+
+resource serverfarms_ASP_RGSonal_bea9_name_resource 'Microsoft.Web/serverfarms@2024-11-01' = {
+  name: serverfarms_ASP_RGSonal_bea9_name
+  location: 'East US'
+  sku: {
+    name: 'Y1'
+    tier: 'Dynamic'
+    size: 'Y1'
+    family: 'Y'
+    capacity: 0
+  }
+  kind: 'functionapp'
+  properties: {
+    perSiteScaling: false
+    elasticScaleEnabled: false
+    maximumElasticWorkerCount: 0
+    isSpot: false
+    reserved: false
+    isXenon: false
+    hyperV: false
+    targetWorkerCount: 0
+    targetWorkerSizeId: 0
+    zoneRedundant: false
+    asyncScalingEnabled: false
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_degradationindependencyduration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'degradationindependencyduration'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'degradationindependencyduration'
+      DisplayName: 'Degradation in dependency duration'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_degradationindependencyduration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'degradationindependencyduration'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'degradationindependencyduration'
+      DisplayName: 'Degradation in dependency duration'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_degradationindependencyduration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'degradationindependencyduration'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'degradationindependencyduration'
+      DisplayName: 'Degradation in dependency duration'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_degradationindependencyduration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'degradationindependencyduration'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'degradationindependencyduration'
+      DisplayName: 'Degradation in dependency duration'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_degradationinserverresponsetime 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'degradationinserverresponsetime'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'degradationinserverresponsetime'
+      DisplayName: 'Degradation in server response time'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_degradationinserverresponsetime 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'degradationinserverresponsetime'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'degradationinserverresponsetime'
+      DisplayName: 'Degradation in server response time'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_degradationinserverresponsetime 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'degradationinserverresponsetime'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'degradationinserverresponsetime'
+      DisplayName: 'Degradation in server response time'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_degradationinserverresponsetime 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'degradationinserverresponsetime'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'degradationinserverresponsetime'
+      DisplayName: 'Degradation in server response time'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_digestMailConfiguration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'digestMailConfiguration'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'digestMailConfiguration'
+      DisplayName: 'Digest Mail Configuration'
+      Description: 'This rule describes the digest mail preferences'
+      HelpUrl: 'www.homail.com'
+      IsHidden: true
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_digestMailConfiguration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'digestMailConfiguration'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'digestMailConfiguration'
+      DisplayName: 'Digest Mail Configuration'
+      Description: 'This rule describes the digest mail preferences'
+      HelpUrl: 'www.homail.com'
+      IsHidden: true
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_digestMailConfiguration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'digestMailConfiguration'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'digestMailConfiguration'
+      DisplayName: 'Digest Mail Configuration'
+      Description: 'This rule describes the digest mail preferences'
+      HelpUrl: 'www.homail.com'
+      IsHidden: true
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_digestMailConfiguration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'digestMailConfiguration'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'digestMailConfiguration'
+      DisplayName: 'Digest Mail Configuration'
+      Description: 'This rule describes the digest mail preferences'
+      HelpUrl: 'www.homail.com'
+      IsHidden: true
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_extension_billingdatavolumedailyspikeextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'extension_billingdatavolumedailyspikeextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_billingdatavolumedailyspikeextension'
+      DisplayName: 'Abnormal rise in daily data volume (preview)'
+      Description: 'This detection rule automatically analyzes the billing data generated by your application, and can warn you about an unusual increase in your application\'s billing costs'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/tree/master/SmartDetection/billing-data-volume-daily-spike.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_extension_billingdatavolumedailyspikeextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'extension_billingdatavolumedailyspikeextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_billingdatavolumedailyspikeextension'
+      DisplayName: 'Abnormal rise in daily data volume (preview)'
+      Description: 'This detection rule automatically analyzes the billing data generated by your application, and can warn you about an unusual increase in your application\'s billing costs'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/tree/master/SmartDetection/billing-data-volume-daily-spike.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_extension_billingdatavolumedailyspikeextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'extension_billingdatavolumedailyspikeextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_billingdatavolumedailyspikeextension'
+      DisplayName: 'Abnormal rise in daily data volume (preview)'
+      Description: 'This detection rule automatically analyzes the billing data generated by your application, and can warn you about an unusual increase in your application\'s billing costs'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/tree/master/SmartDetection/billing-data-volume-daily-spike.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_extension_billingdatavolumedailyspikeextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'extension_billingdatavolumedailyspikeextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_billingdatavolumedailyspikeextension'
+      DisplayName: 'Abnormal rise in daily data volume (preview)'
+      Description: 'This detection rule automatically analyzes the billing data generated by your application, and can warn you about an unusual increase in your application\'s billing costs'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/tree/master/SmartDetection/billing-data-volume-daily-spike.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_extension_canaryextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'extension_canaryextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_canaryextension'
+      DisplayName: 'Canary extension'
+      Description: 'Canary extension'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/'
+      IsHidden: true
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_extension_canaryextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'extension_canaryextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_canaryextension'
+      DisplayName: 'Canary extension'
+      Description: 'Canary extension'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/'
+      IsHidden: true
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_extension_canaryextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'extension_canaryextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_canaryextension'
+      DisplayName: 'Canary extension'
+      Description: 'Canary extension'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/'
+      IsHidden: true
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_extension_canaryextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'extension_canaryextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_canaryextension'
+      DisplayName: 'Canary extension'
+      Description: 'Canary extension'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/'
+      IsHidden: true
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_extension_exceptionchangeextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'extension_exceptionchangeextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_exceptionchangeextension'
+      DisplayName: 'Abnormal rise in exception volume (preview)'
+      Description: 'This detection rule automatically analyzes the exceptions thrown in your application, and can warn you about unusual patterns in your exception telemetry.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/abnormal-rise-in-exception-volume.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_extension_exceptionchangeextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'extension_exceptionchangeextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_exceptionchangeextension'
+      DisplayName: 'Abnormal rise in exception volume (preview)'
+      Description: 'This detection rule automatically analyzes the exceptions thrown in your application, and can warn you about unusual patterns in your exception telemetry.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/abnormal-rise-in-exception-volume.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_extension_exceptionchangeextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'extension_exceptionchangeextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_exceptionchangeextension'
+      DisplayName: 'Abnormal rise in exception volume (preview)'
+      Description: 'This detection rule automatically analyzes the exceptions thrown in your application, and can warn you about unusual patterns in your exception telemetry.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/abnormal-rise-in-exception-volume.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_extension_exceptionchangeextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'extension_exceptionchangeextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_exceptionchangeextension'
+      DisplayName: 'Abnormal rise in exception volume (preview)'
+      Description: 'This detection rule automatically analyzes the exceptions thrown in your application, and can warn you about unusual patterns in your exception telemetry.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/abnormal-rise-in-exception-volume.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_extension_memoryleakextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'extension_memoryleakextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_memoryleakextension'
+      DisplayName: 'Potential memory leak detected (preview)'
+      Description: 'This detection rule automatically analyzes the memory consumption of each process in your application, and can warn you about potential memory leaks or increased memory consumption.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/tree/master/SmartDetection/memory-leak.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_extension_memoryleakextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'extension_memoryleakextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_memoryleakextension'
+      DisplayName: 'Potential memory leak detected (preview)'
+      Description: 'This detection rule automatically analyzes the memory consumption of each process in your application, and can warn you about potential memory leaks or increased memory consumption.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/tree/master/SmartDetection/memory-leak.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_extension_memoryleakextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'extension_memoryleakextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_memoryleakextension'
+      DisplayName: 'Potential memory leak detected (preview)'
+      Description: 'This detection rule automatically analyzes the memory consumption of each process in your application, and can warn you about potential memory leaks or increased memory consumption.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/tree/master/SmartDetection/memory-leak.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_extension_memoryleakextension 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'extension_memoryleakextension'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_memoryleakextension'
+      DisplayName: 'Potential memory leak detected (preview)'
+      Description: 'This detection rule automatically analyzes the memory consumption of each process in your application, and can warn you about potential memory leaks or increased memory consumption.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/tree/master/SmartDetection/memory-leak.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_extension_securityextensionspackage 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'extension_securityextensionspackage'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_securityextensionspackage'
+      DisplayName: 'Potential security issue detected (preview)'
+      Description: 'This detection rule automatically analyzes the telemetry generated by your application and detects potential security issues.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/application-security-detection-pack.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_extension_securityextensionspackage 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'extension_securityextensionspackage'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_securityextensionspackage'
+      DisplayName: 'Potential security issue detected (preview)'
+      Description: 'This detection rule automatically analyzes the telemetry generated by your application and detects potential security issues.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/application-security-detection-pack.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_extension_securityextensionspackage 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'extension_securityextensionspackage'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_securityextensionspackage'
+      DisplayName: 'Potential security issue detected (preview)'
+      Description: 'This detection rule automatically analyzes the telemetry generated by your application and detects potential security issues.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/application-security-detection-pack.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_extension_securityextensionspackage 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'extension_securityextensionspackage'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_securityextensionspackage'
+      DisplayName: 'Potential security issue detected (preview)'
+      Description: 'This detection rule automatically analyzes the telemetry generated by your application and detects potential security issues.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/application-security-detection-pack.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_extension_traceseveritydetector 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'extension_traceseveritydetector'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_traceseveritydetector'
+      DisplayName: 'Degradation in trace severity ratio (preview)'
+      Description: 'This detection rule automatically analyzes the trace logs emitted from your application, and can warn you about unusual patterns in the severity of your trace telemetry.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/degradation-in-trace-severity-ratio.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_extension_traceseveritydetector 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'extension_traceseveritydetector'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_traceseveritydetector'
+      DisplayName: 'Degradation in trace severity ratio (preview)'
+      Description: 'This detection rule automatically analyzes the trace logs emitted from your application, and can warn you about unusual patterns in the severity of your trace telemetry.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/degradation-in-trace-severity-ratio.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_extension_traceseveritydetector 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'extension_traceseveritydetector'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_traceseveritydetector'
+      DisplayName: 'Degradation in trace severity ratio (preview)'
+      Description: 'This detection rule automatically analyzes the trace logs emitted from your application, and can warn you about unusual patterns in the severity of your trace telemetry.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/degradation-in-trace-severity-ratio.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_extension_traceseveritydetector 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'extension_traceseveritydetector'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'extension_traceseveritydetector'
+      DisplayName: 'Degradation in trace severity ratio (preview)'
+      Description: 'This detection rule automatically analyzes the trace logs emitted from your application, and can warn you about unusual patterns in the severity of your trace telemetry.'
+      HelpUrl: 'https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SmartDetection/degradation-in-trace-severity-ratio.md'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_longdependencyduration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'longdependencyduration'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'longdependencyduration'
+      DisplayName: 'Long dependency duration'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_longdependencyduration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'longdependencyduration'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'longdependencyduration'
+      DisplayName: 'Long dependency duration'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_longdependencyduration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'longdependencyduration'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'longdependencyduration'
+      DisplayName: 'Long dependency duration'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_longdependencyduration 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'longdependencyduration'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'longdependencyduration'
+      DisplayName: 'Long dependency duration'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_migrationToAlertRulesCompleted 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'migrationToAlertRulesCompleted'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'migrationToAlertRulesCompleted'
+      DisplayName: 'Migration To Alert Rules Completed'
+      Description: 'A configuration that controls the migration state of Smart Detection to Smart Alerts'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: true
+      IsEnabledByDefault: false
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: false
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_migrationToAlertRulesCompleted 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'migrationToAlertRulesCompleted'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'migrationToAlertRulesCompleted'
+      DisplayName: 'Migration To Alert Rules Completed'
+      Description: 'A configuration that controls the migration state of Smart Detection to Smart Alerts'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: true
+      IsEnabledByDefault: false
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: false
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_migrationToAlertRulesCompleted 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'migrationToAlertRulesCompleted'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'migrationToAlertRulesCompleted'
+      DisplayName: 'Migration To Alert Rules Completed'
+      Description: 'A configuration that controls the migration state of Smart Detection to Smart Alerts'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: true
+      IsEnabledByDefault: false
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: false
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_migrationToAlertRulesCompleted 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'migrationToAlertRulesCompleted'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'migrationToAlertRulesCompleted'
+      DisplayName: 'Migration To Alert Rules Completed'
+      Description: 'A configuration that controls the migration state of Smart Detection to Smart Alerts'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: true
+      IsEnabledByDefault: false
+      IsInPreview: true
+      SupportsEmailNotifications: false
+    }
+    Enabled: false
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_slowpageloadtime 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'slowpageloadtime'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'slowpageloadtime'
+      DisplayName: 'Slow page load time'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_slowpageloadtime 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'slowpageloadtime'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'slowpageloadtime'
+      DisplayName: 'Slow page load time'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_slowpageloadtime 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'slowpageloadtime'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'slowpageloadtime'
+      DisplayName: 'Slow page load time'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_slowpageloadtime 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'slowpageloadtime'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'slowpageloadtime'
+      DisplayName: 'Slow page load time'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ApplicationInsights_ServiceBsQueue_name_slowserverresponsetime 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ApplicationInsights_ServiceBsQueue_name_resource
+  name: 'slowserverresponsetime'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'slowserverresponsetime'
+      DisplayName: 'Slow server response time'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ProjectIntegration_name_slowserverresponsetime 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ProjectIntegration_name_resource
+  name: 'slowserverresponsetime'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'slowserverresponsetime'
+      DisplayName: 'Slow server response time'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyIntegration_name_slowserverresponsetime 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyIntegration_name_resource
+  name: 'slowserverresponsetime'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'slowserverresponsetime'
+      DisplayName: 'Slow server response time'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource components_ThirdPartyntegration_name_slowserverresponsetime 'microsoft.insights/components/ProactiveDetectionConfigs@2018-05-01-preview' = {
+  parent: components_ThirdPartyntegration_name_resource
+  name: 'slowserverresponsetime'
+  location: 'eastus'
+  properties: {
+    RuleDefinitions: {
+      Name: 'slowserverresponsetime'
+      DisplayName: 'Slow server response time'
+      Description: 'Smart Detection rules notify you of performance anomaly issues.'
+      HelpUrl: 'https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics'
+      IsHidden: false
+      IsEnabledByDefault: true
+      IsInPreview: false
+      SupportsEmailNotifications: true
+    }
+    Enabled: true
+    SendEmailsToSubscriptionOwners: true
+    CustomEmails: []
+  }
+}
+
+resource vaults_BusinessEvent_KeyVailt_name_BusinessEventSecret 'Microsoft.KeyVault/vaults/secrets@2024-12-01-preview' = {
+  parent: vaults_BusinessEvent_KeyVailt_name_resource
+  name: 'BusinessEventSecretName'
+  location: 'eastus'
+  properties: {
+    attributes: {
+      enabled: true
+    }
+  }
+}
+
+resource vaults_ProjIntTopic_name_Connect 'Microsoft.KeyVault/vaults/secrets@2024-12-01-preview' = {
+  parent: vaults_ProjIntTopic_name_resource
+  name: 'Connect'
+  location: 'eastus'
+  properties: {
+    attributes: {
+      enabled: true
+    }
+  }
+}
+
+resource vaults_BusinessEvent_KeyVault1_name_D365FOSecret 'Microsoft.KeyVault/vaults/secrets@2024-12-01-preview' = {
+  parent: vaults_BusinessEvent_KeyVault1_name_resource
+  name: 'D365FOSecret'
+  location: 'eastus'
+  properties: {
+    attributes: {
+      enabled: true
+    }
+  }
+}
+
+resource vaults_ProjectIntegrationKey_name_D365FOSecret 'Microsoft.KeyVault/vaults/secrets@2024-12-01-preview' = {
+  parent: vaults_ProjectIntegrationKey_name_resource
+  name: 'D365FOSecret'
+  location: 'eastus'
+  properties: {
+    attributes: {
+      enabled: true
+    }
+  }
+}
+
+resource vaults_BusinessEvent_KeyVault2_name_D365FOSecret 'Microsoft.KeyVault/vaults/secrets@2024-12-01-preview' = {
+  parent: vaults_BusinessEvent_KeyVault2_name_resource
+  name: 'D365FOSecretName'
+  location: 'eastus'
+  properties: {
+    attributes: {
+      enabled: true
+      nbf: 1744065372
+    }
+  }
+}
+
+resource vaults_ProjectIntegrationKey_name_D365FOTopicSecret 'Microsoft.KeyVault/vaults/secrets@2024-12-01-preview' = {
+  parent: vaults_ProjectIntegrationKey_name_resource
+  name: 'D365FOTopicSecret'
+  location: 'eastus'
+  properties: {
+    attributes: {
+      enabled: true
+    }
+  }
+}
+
+resource vaults_BusinessEvent_KeyVault2_name_IntegrationTopicSecret 'Microsoft.KeyVault/vaults/secrets@2024-12-01-preview' = {
+  parent: vaults_BusinessEvent_KeyVault2_name_resource
+  name: 'IntegrationTopicSecret'
+  location: 'eastus'
+  properties: {
+    attributes: {
+      enabled: true
+    }
+  }
+}
+
+resource vaults_trainingSonal_name_ServiceBusBusinessEvent 'Microsoft.KeyVault/vaults/secrets@2024-12-01-preview' = {
+  parent: vaults_trainingSonal_name_resource
+  name: 'ServiceBusBusinessEvent'
+  location: 'eastus'
+  properties: {
+    attributes: {
+      enabled: true
+    }
+  }
+}
+
+resource vaults_trainingSonal_name_ServiceBusBusinessEventSecret 'Microsoft.KeyVault/vaults/secrets@2024-12-01-preview' = {
+  parent: vaults_trainingSonal_name_resource
+  name: 'ServiceBusBusinessEventSecret'
+  location: 'eastus'
+  properties: {
+    attributes: {
+      enabled: true
+    }
+  }
+}
+
+resource userAssignedIdentities_oidc_msi_b7bf_name_oidc_credential_94b1 'Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials@2025-01-31-preview' = {
+  parent: userAssignedIdentities_oidc_msi_b7bf_name_resource
+  name: 'oidc-credential-94b1'
+  properties: {
+    issuer: 'https://token.actions.githubusercontent.com'
+    subject: 'repo:SonalChoubey-1/Azure-Function-App:ref:refs/heads/main'
+    audiences: [
+      'api://AzureADTokenExchange'
+    ]
+  }
+}
+
+resource namespaces_TestPoJsonSonal_name_BusinessEventServiceBus 'Microsoft.ServiceBus/namespaces/authorizationrules@2024-01-01' = {
+  parent: namespaces_TestPoJsonSonal_name_resource
+  name: 'BusinessEventServiceBus'
+  location: 'eastus'
+  properties: {
+    rights: [
+      'Manage'
+      'Listen'
+      'Send'
+    ]
+  }
+}
+
+resource namespaces_ProjectIntegration_name_RootManageSharedAccessKey 'Microsoft.ServiceBus/namespaces/authorizationrules@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_resource
+  name: 'RootManageSharedAccessKey'
+  location: 'eastus'
+  properties: {
+    rights: [
+      'Listen'
+      'Manage'
+      'Send'
+    ]
+  }
+}
+
+resource namespaces_SampleTopic1_name_RootManageSharedAccessKey 'Microsoft.ServiceBus/namespaces/authorizationrules@2024-01-01' = {
+  parent: namespaces_SampleTopic1_name_resource
+  name: 'RootManageSharedAccessKey'
+  location: 'eastus'
+  properties: {
+    rights: [
+      'Listen'
+      'Manage'
+      'Send'
+    ]
+  }
+}
+
+resource namespaces_TestPoJsonSonal_name_RootManageSharedAccessKey 'Microsoft.ServiceBus/namespaces/authorizationrules@2024-01-01' = {
+  parent: namespaces_TestPoJsonSonal_name_resource
+  name: 'RootManageSharedAccessKey'
+  location: 'eastus'
+  properties: {
+    rights: [
+      'Listen'
+      'Manage'
+      'Send'
+    ]
+  }
+}
+
+resource namespaces_SampleTopic1_name_Test 'Microsoft.ServiceBus/namespaces/authorizationrules@2024-01-01' = {
+  parent: namespaces_SampleTopic1_name_resource
+  name: 'Test'
+  location: 'eastus'
+  properties: {
+    rights: [
+      'Send'
+    ]
+  }
+}
+
+resource namespaces_ProjectIntegration_name_Topic 'Microsoft.ServiceBus/namespaces/authorizationrules@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_resource
+  name: 'Topic'
+  location: 'eastus'
+  properties: {
+    rights: [
+      'Manage'
+      'Listen'
+      'Send'
+    ]
+  }
+}
+
+resource namespaces_ProjectIntegration_name_Topic1 'Microsoft.ServiceBus/namespaces/authorizationrules@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_resource
+  name: 'Topic1'
+  location: 'eastus'
+  properties: {
+    rights: [
+      'Send'
+    ]
+  }
+}
+
+resource namespaces_ProjectIntegration_name_default 'Microsoft.ServiceBus/namespaces/networkrulesets@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_resource
+  name: 'default'
+  location: 'eastus'
+  properties: {
+    publicNetworkAccess: 'Enabled'
+    defaultAction: 'Allow'
+    virtualNetworkRules: []
+    ipRules: []
+    trustedServiceAccessEnabled: false
+  }
+}
+
+resource namespaces_SampleTopic1_name_default 'Microsoft.ServiceBus/namespaces/networkrulesets@2024-01-01' = {
+  parent: namespaces_SampleTopic1_name_resource
+  name: 'default'
+  location: 'eastus'
+  properties: {
+    publicNetworkAccess: 'Enabled'
+    defaultAction: 'Allow'
+    virtualNetworkRules: []
+    ipRules: []
+    trustedServiceAccessEnabled: false
+  }
+}
+
+resource namespaces_TestPoJsonSonal_name_default 'Microsoft.ServiceBus/namespaces/networkrulesets@2024-01-01' = {
+  parent: namespaces_TestPoJsonSonal_name_resource
+  name: 'default'
+  location: 'eastus'
+  properties: {
+    publicNetworkAccess: 'Enabled'
+    defaultAction: 'Allow'
+    virtualNetworkRules: []
+    ipRules: []
+    trustedServiceAccessEnabled: false
+  }
+}
+
+resource namespaces_TestPoJsonSonal_name_basicqueue_1 'Microsoft.ServiceBus/namespaces/queues@2024-01-01' = {
+  parent: namespaces_TestPoJsonSonal_name_resource
+  name: 'basicqueue_1'
+  location: 'eastus'
+  properties: {
+    maxMessageSizeInKilobytes: 256
+    lockDuration: 'PT1M'
+    maxSizeInMegabytes: 1024
+    requiresDuplicateDetection: false
+    requiresSession: false
+    defaultMessageTimeToLive: 'P14D'
+    deadLetteringOnMessageExpiration: false
+    enableBatchedOperations: true
+    duplicateDetectionHistoryTimeWindow: 'PT10M'
+    maxDeliveryCount: 10
+    status: 'Active'
+    autoDeleteOnIdle: 'P10675199DT2H48M5.4775807S'
+    enablePartitioning: false
+    enableExpress: false
+  }
+}
+
+resource namespaces_TestPoJsonSonal_name_businesseventqueue 'Microsoft.ServiceBus/namespaces/queues@2024-01-01' = {
+  parent: namespaces_TestPoJsonSonal_name_resource
+  name: 'businesseventqueue'
+  location: 'eastus'
+  properties: {
+    maxMessageSizeInKilobytes: 256
+    lockDuration: 'PT5M'
+    maxSizeInMegabytes: 1024
+    requiresDuplicateDetection: false
+    requiresSession: false
+    defaultMessageTimeToLive: 'P14D'
+    deadLetteringOnMessageExpiration: true
+    enableBatchedOperations: true
+    duplicateDetectionHistoryTimeWindow: 'PT10M'
+    maxDeliveryCount: 10
+    status: 'Active'
+    autoDeleteOnIdle: 'P10675199DT2H48M5.4775807S'
+    enablePartitioning: false
+    enableExpress: false
+  }
+}
+
+resource namespaces_ProjectIntegration_name_newproject 'Microsoft.ServiceBus/namespaces/topics@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_resource
+  name: 'newproject'
+  location: 'eastus'
+  properties: {
+    maxMessageSizeInKilobytes: 256
+    defaultMessageTimeToLive: 'P14D'
+    maxSizeInMegabytes: 1024
+    requiresDuplicateDetection: false
+    duplicateDetectionHistoryTimeWindow: 'PT10M'
+    enableBatchedOperations: true
+    status: 'Active'
+    supportOrdering: false
+    autoDeleteOnIdle: 'P10675199DT2H48M5.4775807S'
+    enablePartitioning: false
+    enableExpress: false
+  }
+}
+
+resource namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic 'Microsoft.ServiceBus/namespaces/topics@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_resource
+  name: '${namespaces_ProjectIntegration_name}topic'
+  location: 'eastus'
+  properties: {
+    maxMessageSizeInKilobytes: 256
+    defaultMessageTimeToLive: 'P10675199DT2H48M5.4775807S'
+    maxSizeInMegabytes: 1024
+    requiresDuplicateDetection: false
+    duplicateDetectionHistoryTimeWindow: 'PT10M'
+    enableBatchedOperations: false
+    status: 'Active'
+    supportOrdering: false
+    autoDeleteOnIdle: 'P10675199DT2H48M5.4775807S'
+    enablePartitioning: false
+    enableExpress: false
+  }
+}
+
+resource namespaces_SampleTopic1_name_topicbe 'Microsoft.ServiceBus/namespaces/topics@2024-01-01' = {
+  parent: namespaces_SampleTopic1_name_resource
+  name: 'topicbe'
+  location: 'eastus'
+  properties: {
+    maxMessageSizeInKilobytes: 256
+    defaultMessageTimeToLive: 'P14D'
+    maxSizeInMegabytes: 1024
+    requiresDuplicateDetection: false
+    duplicateDetectionHistoryTimeWindow: 'PT10M'
+    enableBatchedOperations: true
+    status: 'Active'
+    supportOrdering: false
+    autoDeleteOnIdle: 'P10675199DT2H48M5.4775807S'
+    enablePartitioning: false
+    enableExpress: false
+  }
+}
+
+resource storageAccounts_blobcontainertraining_name_default 'Microsoft.Storage/storageAccounts/blobServices@2025-01-01' = {
+  parent: storageAccounts_blobcontainertraining_name_resource
+  name: 'default'
+  sku: {
+    name: 'Standard_RAGRS'
+    tier: 'Standard'
+  }
+  properties: {
+    containerDeleteRetentionPolicy: {
+      enabled: true
+      days: 7
+    }
+    cors: {
+      corsRules: []
+    }
+    deleteRetentionPolicy: {
+      allowPermanentDelete: false
+      enabled: true
+      days: 7
+    }
+  }
+}
+
+resource storageAccounts_rgsonalaa79_name_default 'Microsoft.Storage/storageAccounts/blobServices@2025-01-01' = {
+  parent: storageAccounts_rgsonalaa79_name_resource
+  name: 'default'
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  properties: {
+    cors: {
+      corsRules: []
+    }
+    deleteRetentionPolicy: {
+      allowPermanentDelete: false
+      enabled: false
+    }
+  }
+}
+
+resource storageAccounts_rgsonalb20f_name_default 'Microsoft.Storage/storageAccounts/blobServices@2025-01-01' = {
+  parent: storageAccounts_rgsonalb20f_name_resource
+  name: 'default'
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  properties: {
+    cors: {
+      corsRules: []
+    }
+    deleteRetentionPolicy: {
+      allowPermanentDelete: false
+      enabled: false
+    }
+  }
+}
+
+resource storageAccounts_rgsonalbeec_name_default 'Microsoft.Storage/storageAccounts/blobServices@2025-01-01' = {
+  parent: storageAccounts_rgsonalbeec_name_resource
+  name: 'default'
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  properties: {
+    cors: {
+      corsRules: []
+    }
+    deleteRetentionPolicy: {
+      allowPermanentDelete: false
+      enabled: false
+    }
+  }
+}
+
+resource Microsoft_Storage_storageAccounts_fileServices_storageAccounts_blobcontainertraining_name_default 'Microsoft.Storage/storageAccounts/fileServices@2025-01-01' = {
+  parent: storageAccounts_blobcontainertraining_name_resource
+  name: 'default'
+  sku: {
+    name: 'Standard_RAGRS'
+    tier: 'Standard'
+  }
+  properties: {
+    protocolSettings: {
+      smb: {}
+    }
+    cors: {
+      corsRules: []
+    }
+    shareDeleteRetentionPolicy: {
+      enabled: true
+      days: 7
+    }
+  }
+}
+
+resource Microsoft_Storage_storageAccounts_fileServices_storageAccounts_rgsonalaa79_name_default 'Microsoft.Storage/storageAccounts/fileServices@2025-01-01' = {
+  parent: storageAccounts_rgsonalaa79_name_resource
+  name: 'default'
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  properties: {
+    protocolSettings: {
+      smb: {}
+    }
+    cors: {
+      corsRules: []
+    }
+    shareDeleteRetentionPolicy: {
+      enabled: true
+      days: 7
+    }
+  }
+}
+
+resource Microsoft_Storage_storageAccounts_fileServices_storageAccounts_rgsonalb20f_name_default 'Microsoft.Storage/storageAccounts/fileServices@2025-01-01' = {
+  parent: storageAccounts_rgsonalb20f_name_resource
+  name: 'default'
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  properties: {
+    protocolSettings: {
+      smb: {}
+    }
+    cors: {
+      corsRules: []
+    }
+    shareDeleteRetentionPolicy: {
+      enabled: true
+      days: 7
+    }
+  }
+}
+
+resource Microsoft_Storage_storageAccounts_fileServices_storageAccounts_rgsonalbeec_name_default 'Microsoft.Storage/storageAccounts/fileServices@2025-01-01' = {
+  parent: storageAccounts_rgsonalbeec_name_resource
+  name: 'default'
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  properties: {
+    protocolSettings: {
+      smb: {}
+    }
+    cors: {
+      corsRules: []
+    }
+    shareDeleteRetentionPolicy: {
+      enabled: true
+      days: 7
+    }
+  }
+}
+
+resource Microsoft_Storage_storageAccounts_queueServices_storageAccounts_blobcontainertraining_name_default 'Microsoft.Storage/storageAccounts/queueServices@2025-01-01' = {
+  parent: storageAccounts_blobcontainertraining_name_resource
+  name: 'default'
+  properties: {
+    cors: {
+      corsRules: []
+    }
+  }
+}
+
+resource Microsoft_Storage_storageAccounts_queueServices_storageAccounts_rgsonalaa79_name_default 'Microsoft.Storage/storageAccounts/queueServices@2025-01-01' = {
+  parent: storageAccounts_rgsonalaa79_name_resource
+  name: 'default'
+  properties: {
+    cors: {
+      corsRules: []
+    }
+  }
+}
+
+resource Microsoft_Storage_storageAccounts_queueServices_storageAccounts_rgsonalb20f_name_default 'Microsoft.Storage/storageAccounts/queueServices@2025-01-01' = {
+  parent: storageAccounts_rgsonalb20f_name_resource
+  name: 'default'
+  properties: {
+    cors: {
+      corsRules: []
+    }
+  }
+}
+
+resource Microsoft_Storage_storageAccounts_queueServices_storageAccounts_rgsonalbeec_name_default 'Microsoft.Storage/storageAccounts/queueServices@2025-01-01' = {
+  parent: storageAccounts_rgsonalbeec_name_resource
+  name: 'default'
+  properties: {
+    cors: {
+      corsRules: []
+    }
+  }
+}
+
+resource Microsoft_Storage_storageAccounts_tableServices_storageAccounts_blobcontainertraining_name_default 'Microsoft.Storage/storageAccounts/tableServices@2025-01-01' = {
+  parent: storageAccounts_blobcontainertraining_name_resource
+  name: 'default'
+  properties: {
+    cors: {
+      corsRules: []
+    }
+  }
+}
+
+resource Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalaa79_name_default 'Microsoft.Storage/storageAccounts/tableServices@2025-01-01' = {
+  parent: storageAccounts_rgsonalaa79_name_resource
+  name: 'default'
+  properties: {
+    cors: {
+      corsRules: []
+    }
+  }
+}
+
+resource Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default 'Microsoft.Storage/storageAccounts/tableServices@2025-01-01' = {
+  parent: storageAccounts_rgsonalb20f_name_resource
+  name: 'default'
+  properties: {
+    cors: {
+      corsRules: []
+    }
+  }
+}
+
+resource Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalbeec_name_default 'Microsoft.Storage/storageAccounts/tableServices@2025-01-01' = {
+  parent: storageAccounts_rgsonalbeec_name_resource
+  name: 'default'
+  properties: {
+    cors: {
+      corsRules: []
+    }
+  }
+}
+
+resource sites_ProjectIntegration_name_resource 'Microsoft.Web/sites@2024-11-01' = {
+  name: sites_ProjectIntegration_name
+  location: 'East US'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/Microsoft.Insights/components/ProjectIntegration'
+  }
+  kind: 'functionapp,workflowapp'
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    enabled: true
+    hostNameSslStates: [
+      {
+        name: 'projectintegration-bagpcrd8f4fzdyeu.eastus-01.azurewebsites.net'
+        sslState: 'Disabled'
+        hostType: 'Standard'
+      }
+      {
+        name: 'projectintegration-bagpcrd8f4fzdyeu.scm.eastus-01.azurewebsites.net'
+        sslState: 'Disabled'
+        hostType: 'Repository'
+      }
+    ]
+    serverFarmId: serverfarms_ASP_RGSonal_8978_name_resource.id
+    reserved: false
+    isXenon: false
+    hyperV: false
+    dnsConfiguration: {}
+    outboundVnetRouting: {
+      allTraffic: false
+      applicationTraffic: false
+      contentShareTraffic: false
+      imagePullTraffic: false
+      backupRestoreTraffic: false
+    }
+    siteConfig: {
+      numberOfWorkers: 1
+      acrUseManagedIdentityCreds: false
+      alwaysOn: false
+      http20Enabled: false
+      functionAppScaleLimit: 0
+      minimumElasticInstanceCount: 1
+    }
+    scmSiteAlsoStopped: false
+    clientAffinityEnabled: false
+    clientAffinityProxyEnabled: false
+    clientCertEnabled: false
+    clientCertMode: 'Required'
+    hostNamesDisabled: false
+    ipMode: 'IPv4'
+    customDomainVerificationId: 'D266BB4CE4A745744DCAB04D6E01C95C981AA83729E21649DC2DCBC70E4879D7'
+    containerSize: 1536
+    dailyMemoryTimeQuota: 0
+    httpsOnly: true
+    endToEndEncryptionEnabled: false
+    redundancyMode: 'None'
+    publicNetworkAccess: 'Enabled'
+    storageAccountRequired: false
+    keyVaultReferenceIdentity: 'SystemAssigned'
+    autoGeneratedDomainNameLabelScope: 'TenantReuse'
+  }
+}
+
+resource sites_ThirdPartyIntegration_name_resource 'Microsoft.Web/sites@2024-11-01' = {
+  name: sites_ThirdPartyIntegration_name
+  location: 'East US'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/microsoft.insights/components/ThirdPartyIntegration'
+  }
+  kind: 'functionapp'
+  properties: {
+    enabled: true
+    hostNameSslStates: [
+      {
+        name: 'thirdpartyintegration-fqcsgthjcxhyhqhq.eastus-01.azurewebsites.net'
+        sslState: 'Disabled'
+        hostType: 'Standard'
+      }
+      {
+        name: 'thirdpartyintegration-fqcsgthjcxhyhqhq.scm.eastus-01.azurewebsites.net'
+        sslState: 'Disabled'
+        hostType: 'Repository'
+      }
+    ]
+    serverFarmId: serverfarms_ASP_RGSonal_812b_name_resource.id
+    reserved: false
+    isXenon: false
+    hyperV: false
+    dnsConfiguration: {}
+    outboundVnetRouting: {
+      allTraffic: false
+      applicationTraffic: false
+      contentShareTraffic: false
+      imagePullTraffic: false
+      backupRestoreTraffic: false
+    }
+    siteConfig: {
+      numberOfWorkers: 1
+      acrUseManagedIdentityCreds: false
+      alwaysOn: false
+      http20Enabled: false
+      functionAppScaleLimit: 200
+      minimumElasticInstanceCount: 0
+    }
+    scmSiteAlsoStopped: false
+    clientAffinityEnabled: false
+    clientAffinityProxyEnabled: false
+    clientCertEnabled: false
+    clientCertMode: 'Required'
+    hostNamesDisabled: false
+    ipMode: 'IPv4'
+    customDomainVerificationId: 'D266BB4CE4A745744DCAB04D6E01C95C981AA83729E21649DC2DCBC70E4879D7'
+    containerSize: 1536
+    dailyMemoryTimeQuota: 0
+    httpsOnly: true
+    endToEndEncryptionEnabled: false
+    redundancyMode: 'None'
+    publicNetworkAccess: 'Enabled'
+    storageAccountRequired: false
+    keyVaultReferenceIdentity: 'SystemAssigned'
+    autoGeneratedDomainNameLabelScope: 'TenantReuse'
+  }
+}
+
+resource sites_ThirdPartyntegration_name_resource 'Microsoft.Web/sites@2024-11-01' = {
+  name: sites_ThirdPartyntegration_name
+  location: 'East US'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/microsoft.insights/components/ThirdPartyntegration'
+  }
+  kind: 'functionapp'
+  properties: {
+    enabled: true
+    hostNameSslStates: [
+      {
+        name: 'thirdpartyntegration-dnehf3dhbgamggaj.eastus-01.azurewebsites.net'
+        sslState: 'Disabled'
+        hostType: 'Standard'
+      }
+      {
+        name: 'thirdpartyntegration-dnehf3dhbgamggaj.scm.eastus-01.azurewebsites.net'
+        sslState: 'Disabled'
+        hostType: 'Repository'
+      }
+    ]
+    serverFarmId: serverfarms_ASP_RGSonal_bea9_name_resource.id
+    reserved: false
+    isXenon: false
+    hyperV: false
+    dnsConfiguration: {}
+    outboundVnetRouting: {
+      allTraffic: false
+      applicationTraffic: false
+      contentShareTraffic: false
+      imagePullTraffic: false
+      backupRestoreTraffic: false
+    }
+    siteConfig: {
+      numberOfWorkers: 1
+      acrUseManagedIdentityCreds: false
+      alwaysOn: false
+      http20Enabled: false
+      functionAppScaleLimit: 200
+      minimumElasticInstanceCount: 0
+    }
+    scmSiteAlsoStopped: false
+    clientAffinityEnabled: false
+    clientAffinityProxyEnabled: false
+    clientCertEnabled: false
+    clientCertMode: 'Required'
+    hostNamesDisabled: false
+    ipMode: 'IPv4'
+    customDomainVerificationId: 'D266BB4CE4A745744DCAB04D6E01C95C981AA83729E21649DC2DCBC70E4879D7'
+    containerSize: 1536
+    dailyMemoryTimeQuota: 0
+    httpsOnly: true
+    endToEndEncryptionEnabled: false
+    redundancyMode: 'None'
+    publicNetworkAccess: 'Enabled'
+    storageAccountRequired: false
+    keyVaultReferenceIdentity: 'SystemAssigned'
+    autoGeneratedDomainNameLabelScope: 'TenantReuse'
+  }
+}
+
+resource sites_ProjectIntegration_name_ftp 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2024-11-01' = {
+  parent: sites_ProjectIntegration_name_resource
+  name: 'ftp'
+  location: 'East US'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/Microsoft.Insights/components/ProjectIntegration'
+  }
+  properties: {
+    allow: false
+  }
+}
+
+resource sites_ThirdPartyIntegration_name_ftp 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2024-11-01' = {
+  parent: sites_ThirdPartyIntegration_name_resource
+  name: 'ftp'
+  location: 'East US'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/microsoft.insights/components/ThirdPartyIntegration'
+  }
+  properties: {
+    allow: false
+  }
+}
+
+resource sites_ThirdPartyntegration_name_ftp 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2024-11-01' = {
+  parent: sites_ThirdPartyntegration_name_resource
+  name: 'ftp'
+  location: 'East US'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/microsoft.insights/components/ThirdPartyntegration'
+  }
+  properties: {
+    allow: false
+  }
+}
+
+resource sites_ProjectIntegration_name_scm 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2024-11-01' = {
+  parent: sites_ProjectIntegration_name_resource
+  name: 'scm'
+  location: 'East US'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/Microsoft.Insights/components/ProjectIntegration'
+  }
+  properties: {
+    allow: false
+  }
+}
+
+resource sites_ThirdPartyIntegration_name_scm 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2024-11-01' = {
+  parent: sites_ThirdPartyIntegration_name_resource
+  name: 'scm'
+  location: 'East US'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/microsoft.insights/components/ThirdPartyIntegration'
+  }
+  properties: {
+    allow: false
+  }
+}
+
+resource sites_ThirdPartyntegration_name_scm 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2024-11-01' = {
+  parent: sites_ThirdPartyntegration_name_resource
+  name: 'scm'
+  location: 'East US'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/microsoft.insights/components/ThirdPartyntegration'
+  }
+  properties: {
+    allow: false
+  }
+}
+
+resource sites_ProjectIntegration_name_web 'Microsoft.Web/sites/config@2024-11-01' = {
+  parent: sites_ProjectIntegration_name_resource
+  name: 'web'
+  location: 'East US'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/Microsoft.Insights/components/ProjectIntegration'
+  }
+  properties: {
+    numberOfWorkers: 1
+    defaultDocuments: [
+      'Default.htm'
+      'Default.html'
+      'Default.asp'
+      'index.htm'
+      'index.html'
+      'iisstart.htm'
+      'default.aspx'
+      'index.php'
+    ]
+    netFrameworkVersion: 'v8.0'
+    requestTracingEnabled: false
+    remoteDebuggingEnabled: false
+    httpLoggingEnabled: false
+    acrUseManagedIdentityCreds: false
+    logsDirectorySizeLimit: 35
+    detailedErrorLoggingEnabled: false
+    publishingUsername: 'REDACTED'
+    scmType: 'None'
+    use32BitWorkerProcess: false
+    webSocketsEnabled: false
+    alwaysOn: false
+    managedPipelineMode: 'Integrated'
+    virtualApplications: [
+      {
+        virtualPath: '/'
+        physicalPath: 'site\\wwwroot'
+        preloadEnabled: false
+      }
+    ]
+    loadBalancing: 'LeastRequests'
+    experiments: {
+      rampUpRules: []
+    }
+    autoHealEnabled: false
+    vnetRouteAllEnabled: false
+    vnetPrivatePortsCount: 0
+    publicNetworkAccess: 'Enabled'
+    cors: {
+      supportCredentials: false
+    }
+    localMySqlEnabled: false
+    managedServiceIdentityId: 53896
+    ipSecurityRestrictions: [
+      {
+        ipAddress: 'Any'
+        action: 'Allow'
+        priority: 2147483647
+        name: 'Allow all'
+        description: 'Allow all access'
+      }
+    ]
+    scmIpSecurityRestrictions: [
+      {
+        ipAddress: 'Any'
+        action: 'Allow'
+        priority: 2147483647
+        name: 'Allow all'
+        description: 'Allow all access'
+      }
+    ]
+    scmIpSecurityRestrictionsUseMain: false
+    http20Enabled: false
+    minTlsVersion: '1.2'
+    scmMinTlsVersion: '1.2'
+    ftpsState: 'FtpsOnly'
+    preWarmedInstanceCount: 1
+    functionAppScaleLimit: 0
+    functionsRuntimeScaleMonitoringEnabled: true
+    minimumElasticInstanceCount: 1
+    azureStorageAccounts: {}
+    http20ProxyFlag: 0
+  }
+}
+
+resource sites_ThirdPartyIntegration_name_web 'Microsoft.Web/sites/config@2024-11-01' = {
+  parent: sites_ThirdPartyIntegration_name_resource
+  name: 'web'
+  location: 'East US'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/microsoft.insights/components/ThirdPartyIntegration'
+  }
+  properties: {
+    numberOfWorkers: 1
+    defaultDocuments: [
+      'Default.htm'
+      'Default.html'
+      'Default.asp'
+      'index.htm'
+      'index.html'
+      'iisstart.htm'
+      'default.aspx'
+      'index.php'
+    ]
+    netFrameworkVersion: 'v8.0'
+    requestTracingEnabled: false
+    remoteDebuggingEnabled: false
+    httpLoggingEnabled: false
+    acrUseManagedIdentityCreds: false
+    logsDirectorySizeLimit: 35
+    detailedErrorLoggingEnabled: false
+    publishingUsername: 'REDACTED'
+    scmType: 'GitHubAction'
+    use32BitWorkerProcess: false
+    webSocketsEnabled: false
+    alwaysOn: false
+    managedPipelineMode: 'Integrated'
+    virtualApplications: [
+      {
+        virtualPath: '/'
+        physicalPath: 'site\\wwwroot'
+        preloadEnabled: false
+      }
+    ]
+    loadBalancing: 'LeastRequests'
+    experiments: {
+      rampUpRules: []
+    }
+    autoHealEnabled: false
+    vnetRouteAllEnabled: false
+    vnetPrivatePortsCount: 0
+    publicNetworkAccess: 'Enabled'
+    cors: {
+      allowedOrigins: [
+        'https://portal.azure.com'
+      ]
+      supportCredentials: false
+    }
+    localMySqlEnabled: false
+    ipSecurityRestrictions: [
+      {
+        ipAddress: 'Any'
+        action: 'Allow'
+        priority: 2147483647
+        name: 'Allow all'
+        description: 'Allow all access'
+      }
+    ]
+    scmIpSecurityRestrictions: [
+      {
+        ipAddress: 'Any'
+        action: 'Allow'
+        priority: 2147483647
+        name: 'Allow all'
+        description: 'Allow all access'
+      }
+    ]
+    scmIpSecurityRestrictionsUseMain: false
+    http20Enabled: false
+    minTlsVersion: '1.2'
+    scmMinTlsVersion: '1.2'
+    ftpsState: 'FtpsOnly'
+    preWarmedInstanceCount: 0
+    functionAppScaleLimit: 200
+    functionsRuntimeScaleMonitoringEnabled: false
+    minimumElasticInstanceCount: 0
+    azureStorageAccounts: {}
+    http20ProxyFlag: 0
+  }
+}
+
+resource sites_ThirdPartyntegration_name_web 'Microsoft.Web/sites/config@2024-11-01' = {
+  parent: sites_ThirdPartyntegration_name_resource
+  name: 'web'
+  location: 'East US'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/da723b97-761b-4699-a2e6-ad3b6694be3b/resourceGroups/RG_Sonal/providers/microsoft.insights/components/ThirdPartyntegration'
+  }
+  properties: {
+    numberOfWorkers: 1
+    defaultDocuments: [
+      'Default.htm'
+      'Default.html'
+      'Default.asp'
+      'index.htm'
+      'index.html'
+      'iisstart.htm'
+      'default.aspx'
+      'index.php'
+    ]
+    netFrameworkVersion: 'v8.0'
+    requestTracingEnabled: false
+    remoteDebuggingEnabled: false
+    httpLoggingEnabled: false
+    acrUseManagedIdentityCreds: false
+    logsDirectorySizeLimit: 35
+    detailedErrorLoggingEnabled: false
+    publishingUsername: 'REDACTED'
+    scmType: 'None'
+    use32BitWorkerProcess: false
+    webSocketsEnabled: false
+    alwaysOn: false
+    managedPipelineMode: 'Integrated'
+    virtualApplications: [
+      {
+        virtualPath: '/'
+        physicalPath: 'site\\wwwroot'
+        preloadEnabled: false
+      }
+    ]
+    loadBalancing: 'LeastRequests'
+    experiments: {
+      rampUpRules: []
+    }
+    autoHealEnabled: false
+    vnetRouteAllEnabled: false
+    vnetPrivatePortsCount: 0
+    publicNetworkAccess: 'Enabled'
+    cors: {
+      allowedOrigins: [
+        'https://portal.azure.com'
+      ]
+      supportCredentials: false
+    }
+    localMySqlEnabled: false
+    ipSecurityRestrictions: [
+      {
+        ipAddress: 'Any'
+        action: 'Allow'
+        priority: 2147483647
+        name: 'Allow all'
+        description: 'Allow all access'
+      }
+    ]
+    scmIpSecurityRestrictions: [
+      {
+        ipAddress: 'Any'
+        action: 'Allow'
+        priority: 2147483647
+        name: 'Allow all'
+        description: 'Allow all access'
+      }
+    ]
+    scmIpSecurityRestrictionsUseMain: false
+    http20Enabled: false
+    minTlsVersion: '1.2'
+    scmMinTlsVersion: '1.2'
+    ftpsState: 'FtpsOnly'
+    preWarmedInstanceCount: 0
+    functionAppScaleLimit: 200
+    functionsRuntimeScaleMonitoringEnabled: false
+    minimumElasticInstanceCount: 0
+    azureStorageAccounts: {}
+    http20ProxyFlag: 0
+  }
+}
+
+resource sites_ThirdPartyIntegration_name_9a377e66c8fb4ce8a913cae3e20f763f 'Microsoft.Web/sites/deployments@2024-11-01' = {
+  parent: sites_ThirdPartyIntegration_name_resource
+  name: '9a377e66c8fb4ce8a913cae3e20f763f'
+  location: 'East US'
+  properties: {
+    status: 4
+    author_email: 'N/A'
+    author: 'N/A'
+    deployer: 'ZipDeploy'
+    message: 'Created via a push deployment'
+    start_time: '2026-02-11T00:10:35.7908736Z'
+    end_time: '2026-02-11T00:10:36.6024079Z'
+    active: false
+  }
+}
+
+resource sites_ThirdPartyIntegration_name_bc7aaab3a2b84541835d3792235569e1 'Microsoft.Web/sites/deployments@2024-11-01' = {
+  parent: sites_ThirdPartyIntegration_name_resource
+  name: 'bc7aaab3a2b84541835d3792235569e1'
+  location: 'East US'
+  properties: {
+    status: 4
+    author_email: 'N/A'
+    author: 'N/A'
+    deployer: 'ZipDeploy'
+    message: 'Created via a push deployment'
+    start_time: '2026-02-11T22:37:16.0212768Z'
+    end_time: '2026-02-11T22:37:16.9275095Z'
+    active: false
+  }
+}
+
+resource sites_ThirdPartyIntegration_name_f4405357a64047e7850a6e2c128a425e 'Microsoft.Web/sites/deployments@2024-11-01' = {
+  parent: sites_ThirdPartyIntegration_name_resource
+  name: 'f4405357a64047e7850a6e2c128a425e'
+  location: 'East US'
+  properties: {
+    status: 4
+    author_email: 'N/A'
+    author: 'N/A'
+    deployer: 'ZipDeploy'
+    message: 'Created via a push deployment'
+    start_time: '2026-02-12T00:26:20.3915479Z'
+    end_time: '2026-02-12T00:26:21.5884002Z'
+    active: true
+  }
+}
+
+resource sites_ThirdPartyIntegration_name_ProcessProjectMessage 'Microsoft.Web/sites/functions@2024-11-01' = {
+  parent: sites_ThirdPartyIntegration_name_resource
+  name: 'ProcessProjectMessage'
+  location: 'East US'
+  properties: {
+    script_href: 'https://thirdpartyintegration-fqcsgthjcxhyhqhq.eastus-01.azurewebsites.net/admin/vfs/site/wwwroot/ThirdPartyIntegration.dll'
+    test_data_href: 'https://thirdpartyintegration-fqcsgthjcxhyhqhq.eastus-01.azurewebsites.net/admin/vfs/data/Functions/sampledata/ProcessProjectMessage.dat'
+    href: 'https://thirdpartyintegration-fqcsgthjcxhyhqhq.eastus-01.azurewebsites.net/admin/functions/ProcessProjectMessage'
+    config: {
+      name: 'ProcessProjectMessage'
+      entryPoint: 'ThirdPartyIntegration.ProcessProjectMessage.Run'
+      scriptFile: 'ThirdPartyIntegration.dll'
+      language: 'dotnet-isolated'
+      functionDirectory: ''
+      bindings: [
+        {
+          name: 'message'
+          type: 'serviceBusTrigger'
+          direction: 'In'
+          properties: {
+            supportsDeferredBinding: 'True'
+          }
+          topicName: 'projectintegrationtopic'
+          subscriptionName: 'ABCSystem-Sub'
+          connection: 'ConnectionString'
+          cardinality: 'One'
+        }
+      ]
+    }
+    language: 'dotnet-isolated'
+    isDisabled: false
+  }
+}
+
+resource sites_ProjectIntegration_name_sites_ProjectIntegration_name_bagpcrd8f4fzdyeu_eastus_01_azurewebsites_net 'Microsoft.Web/sites/hostNameBindings@2024-11-01' = {
+  parent: sites_ProjectIntegration_name_resource
+  name: '${sites_ProjectIntegration_name}-bagpcrd8f4fzdyeu.eastus-01.azurewebsites.net'
+  location: 'East US'
+  properties: {
+    siteName: 'ProjectIntegration'
+    hostNameType: 'Verified'
+  }
+}
+
+resource sites_ThirdPartyIntegration_name_sites_ThirdPartyIntegration_name_fqcsgthjcxhyhqhq_eastus_01_azurewebsites_net 'Microsoft.Web/sites/hostNameBindings@2024-11-01' = {
+  parent: sites_ThirdPartyIntegration_name_resource
+  name: '${sites_ThirdPartyIntegration_name}-fqcsgthjcxhyhqhq.eastus-01.azurewebsites.net'
+  location: 'East US'
+  properties: {
+    siteName: 'ThirdPartyIntegration'
+    hostNameType: 'Verified'
+  }
+}
+
+resource sites_ThirdPartyntegration_name_sites_ThirdPartyntegration_name_dnehf3dhbgamggaj_eastus_01_azurewebsites_net 'Microsoft.Web/sites/hostNameBindings@2024-11-01' = {
+  parent: sites_ThirdPartyntegration_name_resource
+  name: '${sites_ThirdPartyntegration_name}-dnehf3dhbgamggaj.eastus-01.azurewebsites.net'
+  location: 'East US'
+  properties: {
+    siteName: 'ThirdPartyntegration'
+    hostNameType: 'Verified'
+  }
+}
+
+resource namespaces_ProjectIntegration_name_newproject_ABCSystem_Sub 'Microsoft.ServiceBus/namespaces/topics/subscriptions@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_newproject
+  name: 'ABCSystem-Sub'
+  location: 'eastus'
+  properties: {
+    isClientAffine: false
+    lockDuration: 'PT1M'
+    requiresSession: true
+    defaultMessageTimeToLive: 'P14D'
+    deadLetteringOnMessageExpiration: false
+    deadLetteringOnFilterEvaluationExceptions: false
+    maxDeliveryCount: 2000
+    status: 'Active'
+    enableBatchedOperations: true
+    autoDeleteOnIdle: 'P10675198DT2H48M5S'
+  }
+  dependsOn: [
+    namespaces_ProjectIntegration_name_resource
+  ]
+}
+
+resource namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic_ABCSystem_Sub 'Microsoft.ServiceBus/namespaces/topics/subscriptions@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic
+  name: 'ABCSystem-Sub'
+  location: 'eastus'
+  properties: {
+    isClientAffine: false
+    lockDuration: 'PT1M'
+    requiresSession: false
+    defaultMessageTimeToLive: 'P10675199DT2H48M5.4775807S'
+    deadLetteringOnMessageExpiration: false
+    deadLetteringOnFilterEvaluationExceptions: true
+    maxDeliveryCount: 10
+    status: 'Active'
+    enableBatchedOperations: false
+    autoDeleteOnIdle: 'P10675199DT2H48M5.4775807S'
+  }
+  dependsOn: [
+    namespaces_ProjectIntegration_name_resource
+  ]
+}
+
+resource namespaces_ProjectIntegration_name_newproject_SharePoint_Sub 'Microsoft.ServiceBus/namespaces/topics/subscriptions@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_newproject
+  name: 'SharePoint-Sub'
+  location: 'eastus'
+  properties: {
+    isClientAffine: false
+    lockDuration: 'PT1M'
+    requiresSession: true
+    defaultMessageTimeToLive: 'P14D'
+    deadLetteringOnMessageExpiration: false
+    deadLetteringOnFilterEvaluationExceptions: false
+    maxDeliveryCount: 2000
+    status: 'Active'
+    enableBatchedOperations: true
+    autoDeleteOnIdle: 'P10675198DT2H48M5S'
+  }
+  dependsOn: [
+    namespaces_ProjectIntegration_name_resource
+  ]
+}
+
+resource namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic_SharePoint_Sub 'Microsoft.ServiceBus/namespaces/topics/subscriptions@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic
+  name: 'SharePoint-Sub'
+  location: 'eastus'
+  properties: {
+    isClientAffine: false
+    lockDuration: 'PT1M'
+    requiresSession: false
+    defaultMessageTimeToLive: 'P14D'
+    deadLetteringOnMessageExpiration: false
+    deadLetteringOnFilterEvaluationExceptions: false
+    maxDeliveryCount: 2000
+    status: 'Active'
+    enableBatchedOperations: true
+    autoDeleteOnIdle: 'P10675198DT2H48M5.477S'
+  }
+  dependsOn: [
+    namespaces_ProjectIntegration_name_resource
+  ]
+}
+
+resource namespaces_SampleTopic1_name_topicbe_Test 'Microsoft.ServiceBus/namespaces/topics/subscriptions@2024-01-01' = {
+  parent: namespaces_SampleTopic1_name_topicbe
+  name: 'Test'
+  location: 'eastus'
+  properties: {
+    isClientAffine: false
+    lockDuration: 'PT1M'
+    requiresSession: false
+    defaultMessageTimeToLive: 'P14D'
+    deadLetteringOnMessageExpiration: false
+    deadLetteringOnFilterEvaluationExceptions: false
+    maxDeliveryCount: 10
+    status: 'Active'
+    enableBatchedOperations: true
+    autoDeleteOnIdle: 'P10675198DT2H48M5S'
+  }
+  dependsOn: [
+    namespaces_SampleTopic1_name_resource
+  ]
+}
+
+resource namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic_TopicSubs 'Microsoft.ServiceBus/namespaces/topics/subscriptions@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic
+  name: 'TopicSubs'
+  location: 'eastus'
+  properties: {
+    isClientAffine: false
+    lockDuration: 'PT1M'
+    requiresSession: true
+    defaultMessageTimeToLive: 'P14D'
+    deadLetteringOnMessageExpiration: true
+    deadLetteringOnFilterEvaluationExceptions: true
+    maxDeliveryCount: 10
+    status: 'Active'
+    enableBatchedOperations: true
+    autoDeleteOnIdle: 'P10675198DT2H48M5.477S'
+  }
+  dependsOn: [
+    namespaces_ProjectIntegration_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalaa79_name_default_azure_webjobs_hosts 'Microsoft.Storage/storageAccounts/blobServices/containers@2025-01-01' = {
+  parent: storageAccounts_rgsonalaa79_name_default
+  name: 'azure-webjobs-hosts'
+  properties: {
+    immutableStorageWithVersioning: {
+      enabled: false
+    }
+    defaultEncryptionScope: '$account-encryption-key'
+    denyEncryptionScopeOverride: false
+    publicAccess: 'None'
+  }
+  dependsOn: [
+    storageAccounts_rgsonalaa79_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_azure_webjobs_hosts 'Microsoft.Storage/storageAccounts/blobServices/containers@2025-01-01' = {
+  parent: storageAccounts_rgsonalb20f_name_default
+  name: 'azure-webjobs-hosts'
+  properties: {
+    immutableStorageWithVersioning: {
+      enabled: false
+    }
+    defaultEncryptionScope: '$account-encryption-key'
+    denyEncryptionScopeOverride: false
+    publicAccess: 'None'
+  }
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalbeec_name_default_azure_webjobs_hosts 'Microsoft.Storage/storageAccounts/blobServices/containers@2025-01-01' = {
+  parent: storageAccounts_rgsonalbeec_name_default
+  name: 'azure-webjobs-hosts'
+  properties: {
+    immutableStorageWithVersioning: {
+      enabled: false
+    }
+    defaultEncryptionScope: '$account-encryption-key'
+    denyEncryptionScopeOverride: false
+    publicAccess: 'None'
+  }
+  dependsOn: [
+    storageAccounts_rgsonalbeec_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalaa79_name_default_azure_webjobs_secrets 'Microsoft.Storage/storageAccounts/blobServices/containers@2025-01-01' = {
+  parent: storageAccounts_rgsonalaa79_name_default
+  name: 'azure-webjobs-secrets'
+  properties: {
+    immutableStorageWithVersioning: {
+      enabled: false
+    }
+    defaultEncryptionScope: '$account-encryption-key'
+    denyEncryptionScopeOverride: false
+    publicAccess: 'None'
+  }
+  dependsOn: [
+    storageAccounts_rgsonalaa79_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_azure_webjobs_secrets 'Microsoft.Storage/storageAccounts/blobServices/containers@2025-01-01' = {
+  parent: storageAccounts_rgsonalb20f_name_default
+  name: 'azure-webjobs-secrets'
+  properties: {
+    immutableStorageWithVersioning: {
+      enabled: false
+    }
+    defaultEncryptionScope: '$account-encryption-key'
+    denyEncryptionScopeOverride: false
+    publicAccess: 'None'
+  }
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalbeec_name_default_azure_webjobs_secrets 'Microsoft.Storage/storageAccounts/blobServices/containers@2025-01-01' = {
+  parent: storageAccounts_rgsonalbeec_name_default
+  name: 'azure-webjobs-secrets'
+  properties: {
+    immutableStorageWithVersioning: {
+      enabled: false
+    }
+    defaultEncryptionScope: '$account-encryption-key'
+    denyEncryptionScopeOverride: false
+    publicAccess: 'None'
+  }
+  dependsOn: [
+    storageAccounts_rgsonalbeec_name_resource
+  ]
+}
+
+resource storageAccounts_blobcontainertraining_name_default_upload_blob 'Microsoft.Storage/storageAccounts/blobServices/containers@2025-01-01' = {
+  parent: storageAccounts_blobcontainertraining_name_default
+  name: 'upload-blob'
+  properties: {
+    immutableStorageWithVersioning: {
+      enabled: false
+    }
+    defaultEncryptionScope: '$account-encryption-key'
+    denyEncryptionScopeOverride: false
+    publicAccess: 'None'
+  }
+  dependsOn: [
+    storageAccounts_blobcontainertraining_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_projectintegration9c0d 'Microsoft.Storage/storageAccounts/fileServices/shares@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_fileServices_storageAccounts_rgsonalb20f_name_default
+  name: 'projectintegration9c0d'
+  properties: {
+    accessTier: 'TransactionOptimized'
+    shareQuota: 102400
+    enabledProtocols: 'SMB'
+  }
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalbeec_name_default_thirdpartyintegration84d7 'Microsoft.Storage/storageAccounts/fileServices/shares@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_fileServices_storageAccounts_rgsonalbeec_name_default
+  name: 'thirdpartyintegration84d7'
+  properties: {
+    accessTier: 'TransactionOptimized'
+    shareQuota: 102400
+    enabledProtocols: 'SMB'
+  }
+  dependsOn: [
+    storageAccounts_rgsonalbeec_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalaa79_name_default_thirdpartyntegrationb17c 'Microsoft.Storage/storageAccounts/fileServices/shares@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_fileServices_storageAccounts_rgsonalaa79_name_default
+  name: 'thirdpartyntegrationb17c'
+  properties: {
+    accessTier: 'TransactionOptimized'
+    shareQuota: 102400
+    enabledProtocols: 'SMB'
+  }
+  dependsOn: [
+    storageAccounts_rgsonalaa79_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b8jobtriggers00 'Microsoft.Storage/storageAccounts/queueServices/queues@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_queueServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b8jobtriggers00'
+  properties: {
+    metadata: {}
+  }
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalaa79_name_default_AzureFunctionsDiagnosticEvents202602 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalaa79_name_default
+  name: 'AzureFunctionsDiagnosticEvents202602'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalaa79_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalbeec_name_default_AzureFunctionsDiagnosticEvents202602 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalbeec_name_default
+  name: 'AzureFunctionsDiagnosticEvents202602'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalbeec_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_AzureFunctionsScaleMetrics202602 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'AzureFunctionsScaleMetrics202602'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b879a4dcf6eb27ca820260210t000000zactions 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b879a4dcf6eb27ca820260210t000000zactions'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b879a4dcf6eb27ca820260211t000000zactions 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b879a4dcf6eb27ca820260211t000000zactions'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b879a4dcf6eb27ca820260212t000000zactions 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b879a4dcf6eb27ca820260212t000000zactions'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b879a4dcf6eb27ca8flows 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b879a4dcf6eb27ca8flows'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b879a4dcf6eb27ca8histories 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b879a4dcf6eb27ca8histories'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b879a4dcf6eb27ca8runs 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b879a4dcf6eb27ca8runs'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b8flowaccesskeys 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b8flowaccesskeys'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b8flowruntimecontext 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b8flowruntimecontext'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b8flows 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b8flows'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b8flowsubscriptions 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b8flowsubscriptions'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b8flowsubscriptionsummary 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b8flowsubscriptionsummary'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource storageAccounts_rgsonalb20f_name_default_flow58c393f940d71b8jobdefinitions 'Microsoft.Storage/storageAccounts/tableServices/tables@2025-01-01' = {
+  parent: Microsoft_Storage_storageAccounts_tableServices_storageAccounts_rgsonalb20f_name_default
+  name: 'flow58c393f940d71b8jobdefinitions'
+  properties: {}
+  dependsOn: [
+    storageAccounts_rgsonalb20f_name_resource
+  ]
+}
+
+resource namespaces_ProjectIntegration_name_newproject_ABCSystem_Sub_Default 'Microsoft.ServiceBus/namespaces/topics/subscriptions/rules@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_newproject_ABCSystem_Sub
+  name: '$Default'
+  location: 'eastus'
+  properties: {
+    action: {}
+    filterType: 'SqlFilter'
+    sqlFilter: {
+      sqlExpression: '1=1'
+      compatibilityLevel: 20
+    }
+  }
+  dependsOn: [
+    namespaces_ProjectIntegration_name_newproject
+    namespaces_ProjectIntegration_name_resource
+  ]
+}
+
+resource namespaces_ProjectIntegration_name_newproject_SharePoint_Sub_Default 'Microsoft.ServiceBus/namespaces/topics/subscriptions/rules@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_newproject_SharePoint_Sub
+  name: '$Default'
+  location: 'eastus'
+  properties: {
+    action: {}
+    filterType: 'SqlFilter'
+    sqlFilter: {
+      sqlExpression: '1=1'
+      compatibilityLevel: 20
+    }
+  }
+  dependsOn: [
+    namespaces_ProjectIntegration_name_newproject
+    namespaces_ProjectIntegration_name_resource
+  ]
+}
+
+resource namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic_ABCSystem_Sub_Default 'Microsoft.ServiceBus/namespaces/topics/subscriptions/rules@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic_ABCSystem_Sub
+  name: '$Default'
+  location: 'eastus'
+  properties: {
+    action: {}
+    filterType: 'SqlFilter'
+    sqlFilter: {
+      sqlExpression: '1=1'
+      compatibilityLevel: 20
+    }
+  }
+  dependsOn: [
+    namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic
+    namespaces_ProjectIntegration_name_resource
+  ]
+}
+
+resource namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic_SharePoint_Sub_Default 'Microsoft.ServiceBus/namespaces/topics/subscriptions/rules@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic_SharePoint_Sub
+  name: '$Default'
+  location: 'eastus'
+  properties: {
+    action: {}
+    filterType: 'SqlFilter'
+    sqlFilter: {
+      sqlExpression: '1=1'
+      compatibilityLevel: 20
+    }
+  }
+  dependsOn: [
+    namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic
+    namespaces_ProjectIntegration_name_resource
+  ]
+}
+
+resource namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic_TopicSubs_Default 'Microsoft.ServiceBus/namespaces/topics/subscriptions/rules@2024-01-01' = {
+  parent: namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic_TopicSubs
+  name: '$Default'
+  location: 'eastus'
+  properties: {
+    action: {}
+    filterType: 'SqlFilter'
+    sqlFilter: {
+      sqlExpression: '1=1'
+      compatibilityLevel: 20
+    }
+  }
+  dependsOn: [
+    namespaces_ProjectIntegration_name_namespaces_ProjectIntegration_name_topic
+    namespaces_ProjectIntegration_name_resource
+  ]
+}
+
+resource namespaces_SampleTopic1_name_topicbe_Test_Default 'Microsoft.ServiceBus/namespaces/topics/subscriptions/rules@2024-01-01' = {
+  parent: namespaces_SampleTopic1_name_topicbe_Test
+  name: '$Default'
+  location: 'eastus'
+  properties: {
+    action: {}
+    filterType: 'SqlFilter'
+    sqlFilter: {
+      sqlExpression: '1=1'
+      compatibilityLevel: 20
+    }
+  }
+  dependsOn: [
+    namespaces_SampleTopic1_name_topicbe
+    namespaces_SampleTopic1_name_resource
+  ]
+}
